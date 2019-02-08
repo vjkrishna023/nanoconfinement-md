@@ -17,22 +17,22 @@ driver = Rappture.library(sys.argv[1])
 io = Rappture.PyXml(sys.argv[1])
 
 salt_concentration = io['input.group(physical).number(salt_concentration).current'].value
-print "salt concentration is %s" % salt_concentration
+print "Salt concentration is %s" % salt_concentration
 
 positive_valency = io['input.group(physical).integer(positive_valency).current'].value
-print "positive valency is %s" % positive_valency
+print "Positive valency is %s" % positive_valency
 
 negative_valency = io['input.group(physical).integer(negative_valency).current'].value
-print "negative_valency is %s" % negative_valency
+print "Negative valency is %s" % negative_valency
 
 confinement_length = io['input.group(physical).number(confinement_length).current'].value
-print "confinement_length is %s" % confinement_length
+print "Confinement length is %s" % confinement_length
 
 ion_diameter = io['input.group(physical).number(ion_diameter).current'].value
-print "ion_diameter is %s" % ion_diameter
+print "Ion diameter is %s" % ion_diameter
 
 simulation_steps = io['input.group(computing).integer(simulation_steps).current'].value
-print "simulation_steps is %s" % simulation_steps
+print "Simulation steps is %s" % simulation_steps
 
 simulation_params="_%.2f" % float(confinement_length)+"_%d" % int(positive_valency)+"_%d" % int(negative_valency)+"_%.2f" % float(salt_concentration)+"_%.3f" % float(ion_diameter)+"_%d" % int(simulation_steps);
 
@@ -51,7 +51,7 @@ total_processors=str(int(mpi_processors*20))
 walltime=str(int(round((int(simulation_steps) + 40000)/40000)+4))
 
 print "Requested walltime is %s" % walltime
-print "Requested total_processors are %s" % total_processors
+print "Requested total processors are %s" % total_processors
 
 try:
      #exitStatus,stdOutput,stdError = Rappture.tools.executeCommand(
